@@ -1,61 +1,145 @@
+
 .meetVideoContainer {
     position: relative;
-    height: 100vh;
-    background: rgb(1, 4, 48);
+    min-height: 100vh;
+    background: linear-gradient(120deg, #23272f 0%, #2e335a 50%, #1e2746 100%);
+    padding-bottom: 80px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    animation: fadeInBg 1.2s ease;
+}
+
+@keyframes fadeInBg {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .meetUserVideo {
-    position: absolute;
-    bottom: 10vh;
-    height: 20vh;
-    width: auto;
-    left: 0;
+    position: relative;
+    height: 200px;
+    width: 340px;
+    max-width: 92vw;
     border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(30, 39, 70, 0.35), 0 1.5px 8px rgba(0,0,0,0.18);
+    background: linear-gradient(120deg, #23272f 60%, #1e2746 100%);
+    margin: 0 auto 24px auto;
+    display: block;
+    border: 2.5px solid rgba(255,255,255,0.08);
+    transition: box-shadow 0.3s, border 0.3s;
+    animation: popIn 0.7s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
+@keyframes popIn {
+    0% { transform: scale(0.92); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+
 .buttonContainers {
-    position: absolute;
-    width: 100vw;
+    position: fixed;
+    left: 0;
     bottom: 0;
+    width: 100vw;
+    background: rgba(30, 39, 70, 0.82);
+    backdrop-filter: blur(8px) saturate(1.2);
     text-align: center;
+    padding: 18px 0 10px 0;
+    z-index: 100;
+    box-shadow: 0 -2px 24px rgba(30,39,70,0.18);
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    animation: slideUp 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes slideUp {
+    0% { transform: translateY(60px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
 .buttonContainers svg {
-    font-size: 3rem;
+    font-size: 2.2rem;
+    transition: color 0.2s, transform 0.18s;
+    filter: drop-shadow(0 2px 6px rgba(30,39,70,0.12));
+}
+.buttonContainers svg:hover {
+    color: #ff9839;
+    transform: scale(1.13);
 }
 
-.conferenceView { 
 
+.conferenceView {
     display: flex;
-    
-    padding: 10px;
-    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 32px 10px 10px 10px;
+    gap: 24px;
+    min-height: 200px;
+    background: rgba(255,255,255,0.01);
+    border-radius: 18px;
+    box-shadow: 0 2px 18px rgba(30,39,70,0.08);
 }
 
-.conferenceView  video {
-    width: 40vw;
-    height: 20vh;
-    min-width: 30vw;
-    border-radius: 10px;
+.conferenceView video {
+    width: 240px;
+    height: 170px;
+    min-width: 180px;
+    object-fit: cover;
+    border-radius: 16px;
+    background: #000;
+    box-shadow: 0 4px 18px rgba(30,39,70,0.18);
+    border: 2px solid rgba(255,255,255,0.07);
+    transition: box-shadow 0.2s, border 0.2s;
 }
+.conferenceView video:hover {
+    box-shadow: 0 8px 32px rgba(255,152,57,0.18);
+    border: 2px solid #ff9839;
+}
+
 
 .chatRoom {
     position: absolute;
-    height: 90vh;
-    right: 0;
-    background: white;
-    border-radius: 10px;
-    width: 30vw;
-    padding-inline: 20px;
+    top: 24px;
+    left: 24px;
+    height: 600px;
+    max-height: 90vh;
+    background: rgba(255,255,255,0.85);
+    border-radius: 20px;
+    width: 360px;
+    min-width: 260px;
+    box-shadow: 0 8px 32px rgba(30,39,70,0.18);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 200;
+    backdrop-filter: blur(6px) saturate(1.2);
+    border: 1.5px solid rgba(30,39,70,0.08);
+    animation: fadeInChat 0.7s cubic-bezier(.68,-0.55,.27,1.55);
 }
+
+@keyframes fadeInChat {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
 
 .chatContainer {
     position: relative;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 18px 0 18px;
+    background: transparent;
 }
 
 
+
 .chattingArea {
-    position: absolute;
+    position: relative;
     bottom: 0;
+    margin-top: 16px;
+    padding-bottom: 16px;
+    display: flex;
+    gap: 10px;
+    background: transparent;
 }
