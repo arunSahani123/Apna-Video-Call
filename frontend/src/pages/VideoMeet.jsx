@@ -39,7 +39,7 @@ export default function VideoMeetComponent() {
 
     let [screen, setScreen] = useState();
 
-    let [showModal, setModal] = useState(true);
+    let [showModal, setModal] = useState(false);
 
     let [screenAvailable, setScreenAvailable] = useState();
 
@@ -52,6 +52,7 @@ export default function VideoMeetComponent() {
     let [askForUsername, setAskForUsername] = useState(true);
 
     let [username, setUsername] = useState("");
+    const chatInputRef = useRef(null);
 
     const videoRef = useRef([])
 
